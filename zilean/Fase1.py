@@ -1,22 +1,38 @@
 import cv2
 import numpy as np
+import time as t
 
 img = cv2.imread('NicoNoche.jpg')
-cv2.imshow('Original', img)
+
 
 h,w = img.shape[:2]
 
-#img2 = np.zeros((h,w,1), np.uint8)
+img3 = np.zeros((h,w,1), np.uint8)
+
 
 r=img[:,:,2]
 g=img[:,:,1]
-img2 = (r>g).astype(np.uint8)*255
+img2 = r.__gt__(g).astype(np.uint8)*255
 
+kernel = np.array([[ 0, 1, 0 ],
+          [ 1, -4, 0],
+          [ 0, 1, 0]])
+
+
+cv2.filter2D(img2, -1, kernel, img3)
+
+cv2.imshow('Original', img)
 cv2.imshow('Filtrada', img2)
+cv2.imshow('Tuneada', img3)
 
+exit
 while True:
     ch = 0xFF & cv2.waitKey()
     
     if ch == 27:
         break
 cv2.destroyAllWindows()
+
+
+
+    
