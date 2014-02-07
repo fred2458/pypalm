@@ -14,9 +14,11 @@ r=img[:,:,2]
 g=img[:,:,1]
 img2 = r.__gt__(g).astype(np.uint8)*255
 
-kernel = np.array([[ 0, 1, 0 ],
-          [ 1, -4, 0],
-          [ 0, 1, 0]])
+kernel = np.array([[ 0, 0, 1, 0, 0],
+				   [ 0, 0, 1, 0, 0],
+          		   [ 1, 1,-8, 1, 1],
+          		   [ 0, 0, 1, 0, 0],
+          		   [ 0, 0, 1, 0, 0]])
 
 
 cv2.filter2D(img2, -1, kernel, img3)
