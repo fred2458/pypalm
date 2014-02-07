@@ -24,17 +24,16 @@ def ImgProc(FileName):
 
     return img2
 
-File1 = 'NicoNoche.jpg'
-File2 = 'Ariel 2.jpg'
+File1 = 'A1.jpg'
+File2 = 'N6.jpg'
 Img1 = ImgProc(File1)
 Img2 = ImgProc(File2)
 
 Img1[:,0:200]=0
-Img2[:,0:200]=0
-#cv2.imshow('Tuneada', Img1)
+Img2[:,0:200]=cv2.imshow('Tuneada', Img1)
 #cv2.imshow('Tuneada1', Img2)
-cv2.imshow('Img1', np.abs(Img1))
-cv2.imshow('Img2', np.abs(Img2))
+#cv2.imshow('Img1', np.abs(Img1))
+#cv2.imshow('Img2', np.abs(Img2))
 cv2.imshow('1-2', np.abs(Img1-Img2))
 #cv2.imshow('2-1', np.abs(Img2-Img1))
 print File1 + '-' + File2 + ': ' + str(np.var(np.abs(Img1-Img2)))
