@@ -86,7 +86,7 @@ def ImgProc(img):
 
     img_mod_gray = cv2.cvtColor(img_mod, cv2.COLOR_BGR2GRAY)
 
-
+    """
     max_area=100
     draw = False
 
@@ -109,11 +109,16 @@ def ImgProc(img):
     #scalar.fill(a_max)
     #res = tr.__gt__(scalar).astype(np.float32)
     #res = r.__gt__(b).astype(np.float32).__mul__(tr)
-    return img
+    """
+    return img_mod_gray
 
+
+
+bgr = cv2.imread("zilean/maki/IMG_20140224_213502.jpg")
 
 while(1):
-    ret, frame = cap.read()
+    #ret, frame = cap.read()
+    frame = cv2.imread("zilean/maki/IMG_20140224_213502.jpg")
 
     frame = ImgProc(frame)
 
@@ -122,5 +127,6 @@ while(1):
     if k == 27:
         break
 
+cv2.imwrite("peroncho.jpg", frame)
 cap.release()
 cv2.destroyAllWindows()
