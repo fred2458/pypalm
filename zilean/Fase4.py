@@ -56,8 +56,8 @@ def ImgProc(new, cal, adapt):
 """
 
 
-bgr = cv2.imread("maki/IMG_20140224_213502.jpg")
-cal = cv2.imread("maki/IMG_20140224_213449.jpg")
+bgr = cv2.imread("maki/loco.jpg")
+cal = cv2.imread("maki/peron.jpg")
 
 
 adapt = LumAdapt(bgr, cal)
