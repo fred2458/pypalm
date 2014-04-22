@@ -11,15 +11,15 @@ def bgcolor(bgn):
     filler = hsv[130,400,:]
     #hsv[120:140,390:410,:] = (255,0,0)
 
-    hsv[:,0:250,:]=filler
+    hsv[:,0:200,:]=filler
     hsv[:,800:,:]=filler
-    hsv[0:50,:,:]=filler
-    hsv[650:,:,:]=filler
+    hsv[0:10,:,:]=filler
+    hsv[700:,:,:]=filler
 
-    hsv[215+40:293+40,260+50:345+50,:]=filler
-    hsv[128+40:241+40,503:614,:]=filler
+    hsv[215:293,260:345,:]=filler
+    hsv[128:241,503:614,:]=filler
     hsv[340:410,530:600,:]=filler
-    hsv[500:584,410+40:480+40,:]=filler
+    hsv[500:584,410:480,:]=filler
 
     #cv2.imshow('calibration', hsv)
 
@@ -28,9 +28,9 @@ def bgcolor(bgn):
 def handcolor(hand):
     hsv = cv2.cvtColor(hand, cv2.COLOR_BGR2YCR_CB) 
 
-    color = hsv[230:550,270:320,:]
+    color = hsv[230:550,270-70:320-70,:]
     
-    #hsv[230:550,270:320,:] = (255,0,0)
+    #hsv[230:550,270-70:320-70,:] = (255,0,0)
 
     #cv2.imshow('calibration', hsv)
 
@@ -69,9 +69,9 @@ cv2.createTrackbar('k_Y','controls',0,255,nothing)
 
 
 
-img = cv2.imread("maki/v4/img.jpg")
+img = cv2.imread("maki/IMG_20140224_213716.jpg")
 img = cv2.resize(img, (1024,768))
-bgn = cv2.imread("maki/v4/bgn.jpg")
+bgn = cv2.imread("maki/IMG_20140224_213449.jpg")
 bgn = cv2.resize(bgn, (1024,768))
 
 key = bgcolor(bgn)
@@ -108,10 +108,10 @@ while(1):
 
 
 
-    frame[:,0:250]=0
+    frame[:,0:200]=0
     frame[:,800:]=0
-    frame[0:50,:]=0
-    frame[650:,:]=0
+    frame[0:10,:]=0
+    frame[700:,:]=0
 
     """
     frame[:,0:170]=0
